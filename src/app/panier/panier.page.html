@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>panier</ion-title>
+    <ion-buttons slot="end">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="ion-page" id="main-content">
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let produit of panier">
+      <img [src]="getImg(produit.img)" alt="Stock logo" width="40px">
+      <ion-label>{{ produit.nom | titlecase }}</ion-label>
+      <ion-label>{{ produit.prix }} Fcfa</ion-label>
+      <ion-label> : </ion-label>
+      <ion-input>{{ produit.quantite }}</ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</div>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Total: <ion-label> {{ prixTotal() }} Fcfa</ion-label></ion-title>
+  </ion-toolbar>
+</ion-footer>

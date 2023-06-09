@@ -1,20 +1,84 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Stock
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-img src="assets/logo/stock.png" alt="Stock logo"></ion-img>
+    <ion-item>
+      <ion-input placeholder='E-mail'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder='Mot de passe'></ion-input>
+    </ion-item>
+    <ion-button shape="round" (click)="onConnexion()">Connexion</ion-button>
+    <div (click)="onInscription()">
+      <h3>Inscription</h3>
+    </div>
+  </div>
+</ion-content> -->
+
+<ion-content>
+  <div class="padding">
+
+    <div class="logo">
+      <ion-img src="assets/logo/stock.png" alt="Stock logo"></ion-img>
+      <!-- <ion-icon color="light" name="contact"></ion-icon> -->
+      <!-- <ion-icon color="light" name="cloudy-night"></ion-icon> -->
+      <!-- <img src="../../assets/logo.png"> -->
+    </div>
+
+    <!-- <ion-item >
+      <ion-label color="light">Email</ion-label>
+      <ion-input color="light" type="mail" placeholder="Adresse email"></ion-input>
+    </ion-item> -->
+    <form [formGroup]="connexionForm" (ngSubmit)="submitForm()">
+      <br>
+      <ion-item>
+        <ion-input placeholder='Login' type="text" formControlName="login"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder='Mot de passe' type="password" formControlName="mp"></ion-input>
+      </ion-item>
+      <br>
+      <!-- <ion-item>
+      <ion-label color="light">Mot de passe</ion-label>
+      <ion-input color="light" type="password" placeholder="Mot de passe"></ion-input>
+    </ion-item> -->
+
+      <!-- <ion-item lines="none">
+      <ion-button color="light" slot="end" fill="clear">Mot de passe oublié ?</ion-button>
+    </ion-item> -->
+
+      <ion-button color="light" expand="block" shape="round" fill="outline"
+        (click)="onConnexion()">Connexion</ion-button>
+    </form>
+    <br>
+    <ion-button color="start" expand="block" shape="round" type="submit">Inscription</ion-button>
+    <!-- 
+    <ion-item lines="none">
+      <ion-label color="light" text-center>Ou connectez-vous avec</ion-label>
+    </ion-item> -->
+
+    <!-- <div class="flex">
+      <ion-button color="facebook" shape="round">
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+        Facebook
+      </ion-button>
+      <ion-button color="google" color="youtube" shape="round">
+        <ion-icon slot="start" name="logo-google"></ion-icon>
+        Google
+      </ion-button>
+    </div> -->
+
   </div>
 </ion-content>

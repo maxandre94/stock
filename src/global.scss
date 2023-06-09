@@ -24,3 +24,28 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.padding {
+    padding: 5%!important;
+  }
+
+  .logo ion-icon{
+    font-size: 9em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .logo {
+    position: relative;
+    height: 250px;
+  }
+
+  ion-item {
+    --ion-background-color: transparent!important;
+  }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }

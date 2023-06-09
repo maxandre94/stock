@@ -1,0 +1,44 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end" (click)="onPannier()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge slot="end">{{ getNbProduitSelect() }}</ion-badge>
+      </ion-buttons>
+      <ion-list>
+        <ion-item>
+          <ion-label>Categorie: </ion-label>
+          <select interface="popover" placeholder="Toutes" #teams (change)="onSelected(teams.value,teamsR.value)">
+            <option value=0>Toutes</option>
+            <option *ngFor="let categorie of categories" value={{categorie.id}}>{{ categorie.nom | titlecase }}</option>
+          </select>
+        </ion-item>
+      </ion-list>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar animated="true" show-clear-button="never" placeholder="Recherche" #teamsR (keyup)="onSelected(teams.value,teamsR.value)"></ion-searchbar>
+    </ion-toolbar>
+    <ion-progress-bar type="indeterminate" *ngIf="produitsProgress.length==0"></ion-progress-bar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    
+    <ion-list>
+      <ion-item *ngFor="let produit of produitsProgress" (click)="onClick(produit)">
+        <img [src]="getImg(produit.img)" alt="Stock logo" width="40px">
+        <ion-label>{{ produit.nom | titlecase }}</ion-label>
+        <ion-label>{{ produit.prix }} Fcfa</ion-label>
+        <ion-checkbox slot="start" checked *ngIf="produit.select==true"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</div>
